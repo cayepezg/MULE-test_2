@@ -1,0 +1,76 @@
+#%RAML 1.0
+
+title: API's de PRUEBA
+description: Demostracíón de componentes MULE
+
+
+/logger:
+  get:
+    displayName: TEST-LOGGER
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              {
+                "mensaje": "OK"
+              }
+              
+              
+/categorias:
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              [
+                "smartphones",
+                "laptops",
+                "fragrances",
+                "skincare",
+                "groceries",
+                "home-decoration" 
+              ]
+  /v1:
+    get:
+      queryParameters:
+        categoria:
+          type: string
+          displayName: Categoría a Filtrar
+          description: La categoría
+          example: "smartphones"
+      responses:
+        200:
+          body:
+            application/json:
+              example:
+                {"mensaje": "pendiente"}
+          
+  /v2:
+    get:
+      queryParameters:
+        categoria:
+          type: string
+          displayName: Categoría a Filtrar
+          description: La categoría
+          enum:
+            - smartphones
+            - laptops
+            - fragrances
+            - skincare
+            - groceries
+            - home-decoration
+        precio:
+          type: number
+          displayName: Categoría a Filtrar
+          description: La categoría
+          example: 1000
+      responses:
+        200:
+          body:
+            application/json:
+              example:
+                {"mensaje": "pendiente"}     
+            
+        
